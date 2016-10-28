@@ -1,26 +1,46 @@
+const autoprefixer = require('autoprefixer');
+
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+
+const extractSCSS = new ExtractTextPlugin('css/style.css')
+const extractHTML = new ExtractTextPlugin('index.html')
+
 module.exports = {
-  entry: './app/app.jsx',
+  entry: [__dirname + '/app/app.jsx', __dirname + '/app/index.html' ],
   output: {
-    path: __dirname,
-    filename: './public/js/bundle.js'
+    path: __dirname + "/public",
+    filename: '/js/bundle.js'
   },
   resolve: {
     root: __dirname,
     alias: {
-
+      Main:     'app/components/Main.jsx',
+      Nav:      'app/components/Nav.jsx',
+      NavLinks:      'app/components/NavLinks.jsx',
+      Weather:  'app/components/Weather.jsx',
+      About:    'app/components/About.jsx',
+      Examples: 'app/components/Examples.jsx',
     },
     extensions: ['','.js','.jsx']
   },
+  devtool: "source-map",
+  devServer: { 'content-base': __dirname + 'public',  inline: true, hot: true, port: 3001 },
   module: {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] }, exclude: /(node_modules|bower_components)/ },
-      { test: /\.scss$/, loaders: ["style", "css", "sass"] },
-      { test: /\.(jpe?g|png|gif|svg)$/i, loaders: [ 'url?limit=10000', 'img?minimize' ] }
+      { test: /\.scss$/i, loaders: ['style', extractSCSS.extract(['css!postcss!sass'])] },
+      { test: __dirname + '/app/index.html', loader:  extractHTML.extract(["html?" + JSON.stringify({ attrs: ["img:src"] })])  },
+      // { test: /\.scss?$/, loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'] },
+      { test: /\.(jpe?g|png|gif|svg)$/i, loaders: [ 'file', 'url?limit=10000', 'img?minimize' ] },
+      // { test: /\.css$/, loaders: [ 'file', 'extract', 'css' ] },
+      // { test: __dirname + '/app/index.html', loaders: [ "file?name=[name].[ext]", "extract", "html?" + JSON.stringify({ attrs: ["img:src", "link:href"] }) ] },
     ]
   },
-  sassLoader: {
-    includePaths: [__dirname + "./app/assets/Sass"]
-  },
+  postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+  plugins: [
+    extractHTML,
+    extractSCSS
+  ],
   imagemin: {
     gifsicle: { interlaced: false },
     jpegtran: {
