@@ -11,12 +11,12 @@ module.exports = {
     return axios.get(requestURL)
     .then(function(res){
       if (res.data.cod && res.data.message){
-        throw new Error('Response Error ',res.data.message)
+        throw new Error('Response Error ', res.data.message)
       } else {
         return Math.round(res.data.main.temp)
       }
     },function(res){
-      throw new Error('Request Error ',res.data.message)
+      throw new Error('Request Error ', res.data.message)
     })
   }
 }
