@@ -5,6 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSCSS = new ExtractTextPlugin('css/style.css')
 const extractHTML = new ExtractTextPlugin('index.html')
 
+const PORT = process.env.PORT || 3001;
+
 module.exports = {
   entry: [__dirname + '/app/app.jsx', __dirname + '/app/index.html' ],
   output: {
@@ -27,7 +29,7 @@ module.exports = {
     extensions: ['','.js','.jsx']
   },
   devtool: "source-map",
-  devServer: { 'content-base': __dirname + 'public',  inline: true, hot: true, port: 3001 },
+  devServer: { 'content-base': __dirname + 'public',  inline: true, hot: true, port: PORT },
   module: {
     loaders: [
       { test: /\.jsx?$/, loader: 'babel-loader', query: { presets: ['react', 'es2015'] }, exclude: /(node_modules|bower_components)/ },
