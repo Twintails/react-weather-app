@@ -1,0 +1,75 @@
+$sky: #b3ffe2;
+$teal: #00c4be;
+$aquamarine: #008075;
+
+$pink: #df3fb7;
+
+html, body{
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+header{
+  background-color: #d2d2d2;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  .icn-logo{
+    background-color: #00c4be;
+    padding:.4em;
+  }
+}
+ul.main-nav {
+  max-width: 70%;
+  margin: 0;
+  text-align: left;
+  list-style: none;
+  list-style-type: none;
+  color: $teal;
+  display: flex;
+  flex-flow: row wrap;
+  /* This aligns items to the end line on main-axis */
+  justify-content: flex-end;
+  li{
+    display: inline-flex;
+  }
+  a, a:visited{
+    background-color: $teal;
+    color: white;
+    padding: .3em .7em;
+    text-decoration: none;
+  }
+  a.active, a:hover, a:active, a:focus {
+    background-color: darken(white, 16%);
+    color: $teal;
+  }
+  a.active {
+    background-color: white;
+  }
+}
+#app{
+  font-family: sans-serif;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+  color: $aquamarine;
+  text-shadow: 1px 1px 2px lighten($teal, 40%);
+  font-size: 22px;
+  .main-content > div p, .main-content > div h3{
+    margin: 0 auto;
+    text-align: center;
+  }
+}
+.splash h1{
+  font-size: 3em;
+  text-align: center;
+}
+.splash p {
+  padding: .3em 3em;
+}
+form {
+  margin: 0 auto;
+  max-width: 6em;
+}
