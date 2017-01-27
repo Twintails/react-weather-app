@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 
-class Examples extends Component {
-  render() {
+const Examples = (props) => {
     return (
-      <p>Examples Component</p>
-    );
-  }
+    <p>Examples Component</p>
+  )
 }
 
 export default Examples
