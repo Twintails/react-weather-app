@@ -4,7 +4,8 @@
   "description": "Simple react app",
   "main": "server.js",
   "scripts": {
-    "start": "webpack-dev-server --progress --inline --hot --history-api-fallback",
+    "start" : "node ./app/app.jsx",
+    "develop": "webpack-dev-server --progress --inline --hot --history-api-fallback",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Andrew Mead",
