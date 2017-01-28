@@ -5,10 +5,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const extractSCSS = new ExtractTextPlugin('css/style.css')
 const extractHTML = new ExtractTextPlugin('index.html')
 
+const webpack = require('webpack')
+
 const PORT = process.env.PORT || 3001;
 
 module.exports = {
-  entry: [__dirname + '/app/app.jsx', __dirname + '/app/index.html' ],
+  entry: [
+    'script!jquery/dist/jquery.min.js',
+    'script!foundation-sites/dist/js/foundation.min.js',
+    __dirname + '/app/app.jsx',
+    __dirname + '/app/index.html'
+  ],
   output: {
     path: __dirname + "/public",
     filename: '/js/bundle.js'
@@ -42,7 +49,14 @@ module.exports = {
     ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
+  externals: {
+    jquery: 'jQuery'
+  },
   plugins: [
+    new webpack.ProvidePlugin({
+      '$':'jquery',
+      'jQuery':'jquery'
+    }),
     extractHTML,
     extractSCSS
   ],
