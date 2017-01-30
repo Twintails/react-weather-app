@@ -20,6 +20,10 @@ header{
     padding:.4em;
   }
 }
+.menu .menu-text, h1, h2, h3, h3, h5, h6 {
+  color: $aquamarine !important; //because foundation declares inherit FSSR
+  text-shadow: 1px 1px 2px lighten($teal, 40%);
+}
 ul.main-nav {
   max-width: 70%;
   margin: 0;
@@ -54,13 +58,10 @@ ul.main-nav {
   background-repeat: no-repeat;
   background-position: center;
   height: 100%;
-  color: $aquamarine;
-  text-shadow: 1px 1px 2px lighten($teal, 40%);
+  // color: $aquamarine;
+  // text-shadow: 1px 1px 2px lighten($teal, 40%);
   font-size: 22px;
-  .main-content > div p, .main-content > div h3{
-    margin: 0 auto;
-    text-align: center;
-  }
+
 }
 .splash h1{
   font-size: 3em;
@@ -69,7 +70,6 @@ ul.main-nav {
 .splash p {
   padding: .3em 3em;
 }
-form {
-  margin: 0 auto;
-  max-width: 6em;
+.main-content > .row h1 {
+  text-align: center;
 }

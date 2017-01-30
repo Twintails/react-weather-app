@@ -5,8 +5,11 @@ const Main = (props) => {
   return (
     <div className="main-content">
       <Nav/>
-      <h2>{ props.route.title }</h2>
-      {props.children}
+      <div className="row">
+        <div className="medium-6 large-4 small-centered">
+          {props.children}
+        </div>
+      </div>
     </div>
   )
 }

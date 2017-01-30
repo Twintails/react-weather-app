@@ -6,11 +6,13 @@ import Weather from 'Weather'
 import About from 'About'
 import Examples from 'Examples'
 
-// Load Foundation-sites
-rquire('style!css!foundation-sites/dist/css/foundation.min.css')
 
+
+
+// Load Foundation-sites
+import 'style!css!foundation-sites/dist/css/foundation.min.css'
 //scss
-import './assets/sass/style.scss';
+import './assets/sass/style.scss'
 
 var firstName = 'Dave';
 
