@@ -15,8 +15,9 @@ module.exports = {
       } else {
         return Math.round(res.data.main.temp)
       }
-    },function(res){
-      throw new Error('Request Error ', res.data.message)
+    },function(err){
+      // throw new Error('Request Error ', err.res.data.message)
+      throw new Error('Unable to fetch weather for that location.')
     })
   }
 }
