@@ -5,7 +5,14 @@ import NavLink from 'NavLinks'
 const Nav = React.createClass({
   onSearch: function(e) {
     e.preventDefault()
-    console.log('Not yet wired up!');
+    var location = this.refs.search.value
+    var encodedLocation = encodeURIComponent(location)
+
+    if ( location.length > 0) {
+      this.refs.search.value = ''
+      // window.location.hash = '/?location=' + encodedLocation
+      window.location.href = window.location.origin + '/?location=' + encodedLocation
+    }
   },
   render: function (props) {
     return (
@@ -24,7 +31,7 @@ const Nav = React.createClass({
           <form onSubmit={this.onSearch}>
             <ul className="menu">
               <li>
-                <input type="search" placeholder="Search Weather"/>
+                <input type="search" ref="search" placeholder="Search Weather by City"/>
               </li>
               <li>
                 <input type="submit" className="button"  value="Get Weather"/>

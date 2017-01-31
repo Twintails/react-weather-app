@@ -7,7 +7,7 @@ const Examples = (props) => {
         <h1>Examples</h1>
         <p>Here are a few examples to try out:</p>
         <ol>
-          <li><Link to='/?location=Georgetown,tx'>Georgetown</Link></li>
+          <li><Link to='/?location=Georgetown,%20TX'>Georgetown</Link></li>
           <li><Link to='/?location=Cowtown'>Cowtown</Link></li>
         </ol>
       </div>
