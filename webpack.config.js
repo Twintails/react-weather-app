@@ -23,6 +23,7 @@ module.exports = {
   resolve: {
     root: __dirname,
     alias: {
+      apiKey:         'apiKey.json',
       Main:           'app/components/Main.jsx',
       Nav:            'app/components/Nav.jsx',
       NavLinks:       'app/components/NavLinks.jsx',
@@ -44,9 +45,16 @@ module.exports = {
       { test: /\.scss$/i, loaders: ['style', extractSCSS.extract(['css!postcss!sass'])] },
       { test: __dirname + '/app/index.html', loader:  extractHTML.extract(["html?" + JSON.stringify({ attrs: ["img:src"] })])  },
       // { test: /\.scss?$/, loaders: ['style', 'css?sourceMap', 'postcss?sourceMap', 'sass?sourceMap'] },
-      { test: /\.(jpe?g|png|gif|svg)$/i, loaders: [ 'file', 'url?limit=10000', 'img?minimize' ] },
+      { test: /\.(jpe?g|png|gif|svg|ico)$/i, loaders: [ 'file', 'url?limit=10000', 'img?minimize' ] },
       // { test: /\.css$/, loaders: [ 'file', 'extract', 'css' ] },
+      // { test: /\.json/, loaders: [ 'file', 'extract', 'json' ] },
       // { test: __dirname + '/app/index.html', loaders: [ "file?name=[name].[ext]", "extract", "html?" + JSON.stringify({ attrs: ["img:src", "link:href"] }) ] },
+    ],
+    rules: [
+      {
+        test: /\.json$/,
+        use: 'json-loader'
+      }
     ]
   },
   postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],

@@ -14,6 +14,10 @@ npm install
 nodemon
 ```
 
+Make a JSON file at the root of the project called apiKey.json
+
+    { "OWMapiKey": "your-app-id-from-OWM" }
+
 
 ### Contribution guidelines ###
 

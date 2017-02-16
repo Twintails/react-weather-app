@@ -14,8 +14,6 @@ import 'style!css!foundation-sites/dist/css/foundation.min.css'
 //scss
 import './assets/sass/style.scss'
 
-var firstName = 'Dave';
-
 
 ReactDOM.render(
   <Router history={browserHistory}>

@@ -59,6 +59,7 @@ public/**/
 ## Source not needed in repo
 **/bower_components
 **/sourcemaps
+apiKey.json
 
 ## OPK
 node_modules
